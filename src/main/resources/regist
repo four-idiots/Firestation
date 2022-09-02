@@ -1,0 +1,45 @@
+<h2>서비스 등록하기</h2>
+<form onsubmit="trans_data();">
+  <div>
+    <i class="icon-building-filled"></i>
+    <b>아파트 이름</b><br />
+
+    <input
+      type="text"
+      id="apartname"
+      placeholder=" oo아파트"
+      style="width: 280px"
+    />
+  </div>
+
+  <div>
+    <i class="icon-home"></i>
+    <b>주소(동/호)</b><br />
+
+    <input
+      type="number"
+      id="building"
+      placeholder="(숫자)동"
+      style="width: 130px"
+    />
+    /
+    <input
+      type="number"
+      id="unit"
+      style="width: 130px"
+      placeholder="(숫자)호"
+    />
+  </div>
+
+  <div id="fires">
+    <i class="icon-handshake-o"></i>
+
+    <b>정보 공유 소방서 등록</b><br />
+    <b id="info"></b>
+    <input type="text" id="nearest_station" name="station" value="" />
+  </div>
+
+  <div>
+    <input id="btn-save" type="submit" value="Register" />
+  </div>
+</form>

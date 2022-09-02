@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Main 페이지</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keyword" content="fire, prevention" />
+  <meta name="subject" content="화재 방지" />
+  <meta name="description" content="소비자들 서비스 가입 페이지" />
+  <link href="css/index.css" rel="stylesheet" />
+  <link
+          href="fontello-2d947b19/css/fontello.css"
+          rel="stylesheet"
+  />
+  <script src="/asset/js/jQuery.js"></script>
+  <script src="/asset/js/fetch.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+<header id="top-menu" style="height: 10%"></header>
+
+<article id="join" style="height: 70%">
+  <h2>로그인</h2>
+  <div>
+    <i class="icon-user"></i>
+    <input type="text" id="firestationname" placeholder="아이디" />
+  </div>
+  <div>
+    <i class="icon-key"></i>
+    <input type="password" id="firestationpassword" placeholder="비밀번호" />
+  </div>
+  <div>
+    <button id="btn-login" type="submit">Login</button>
+  </div>
+  </form>
+</article>
+
+<footer style="height: 20%"></footer>
+
+<script>
+      fetchfunc("head", "#top-menu");
+      fetchfunc("foot", "footer");
+    </script>
+<script src="/asset/js/user.js"></script>
+</body>
+</html>
+
+
+
+
