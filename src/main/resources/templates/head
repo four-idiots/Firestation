@@ -1,0 +1,22 @@
+<nav>
+  <ul>
+    <li style="float: left">
+      <a href="index.html" id="home"><b>화재 미리 알림서비스</b></a>
+    </li>
+    <li>
+      <a href="http://www.119.go.kr/Center119/main.do" class="menu"
+        ><b>119 안전신고센터</b></a
+      >
+    </li>
+    <li>
+     <a class="menu" href="/auth/joinForm" ><b>관리자 회원가입</b></a>
+    </li>
+    <li>
+      <a class="menu" href="/auth/joinForm" ><b>서비스 등록하기</b></a>
+    </li>
+    <li>
+          <a class="menu" href="/auth/loginForm" ><b>로그인</b></a>
+        </li>
+  </ul>
+</nav>
+
