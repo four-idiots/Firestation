@@ -16,7 +16,9 @@ public class MemberListService {
     private MemberListRepository memberListRepository;
 
     @Transactional(readOnly = true)
-    public List<MemberList> userList() {
-        return memberListRepository.findAll();
+    public MemberList userList(String firestationname) {
+
+        return memberListRepository.findAll().stream().filter(f -> firestationname.equals(f.getMember().getNearestStation()))
+                .findAny().orElse(null);
     }
 }

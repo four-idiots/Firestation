@@ -11,10 +11,4 @@ public class MemberListController {
     @Autowired
     private MemberListService memberListService;
 
-    @GetMapping({"","/"})
-    public String index(Model model) {
-        model.addAttribute("memberList", memberListService.userList());
-        return "index";
-    }
-
 }

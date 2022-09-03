@@ -29,6 +29,10 @@ public class MemberList {
     })
     private Member member;
 
+    @OneToMany
+    @JoinColumn(name="firestationname")
+    private Firestation firestation;
+
 
 
 

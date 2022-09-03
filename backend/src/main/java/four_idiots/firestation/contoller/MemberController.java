@@ -18,4 +18,14 @@ public class MemberController {
     public String index () {
         return "index.html";
     }
+
+    @GetMapping("/user/register")
+    public String userRegister() {
+        return null;
+    }
+
+    @GetMapping("/admin/register")
+    public String adminRegister() {
+        return null;
+    }
 }
