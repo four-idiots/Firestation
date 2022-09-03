@@ -36,16 +36,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/", "/auth/**", "/asset/**", "/templates/**")
+                    .antMatchers("/", "/auth/**", "/static/**", "/css/**", "/js/**" +
+                            "")
                         .permitAll()
                         .anyRequest()
-                    .authenticated()
-                .and()
-                    .formLogin()
-                    .loginPage("/auth/loginForm") // 로그인 페이지
-                    .loginProcessingUrl("auth/loginProc")
-                    .defaultSuccessUrl("/")
-                    .failureUrl("/auth/loginForm");
+                    .authenticated();
+//                .and()
+//                    .formLogin()
+//                    .loginPage("/auth/loginForm") // 로그인 페이지
+//                    .loginProcessingUrl("auth/loginProc")
+//                    .defaultSuccessUrl("/")
+//                    .failureUrl("/auth/loginForm");
 
     }
 }

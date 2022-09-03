@@ -25,4 +25,27 @@ public class Firestation {
     @Enumerated(EnumType.STRING)
     private RoleType roleType;
 
+    public String getFirestationname() {
+        return firestationname;
+    }
+
+    public void setFirestationname(String firestationname) {
+        this.firestationname = firestationname;
+    }
+
+    public String getFirestationPw() {
+        return firestationPw;
+    }
+
+    public void setFirestationPw(String firestationPw) {
+        this.firestationPw = firestationPw;
+    }
+
+    public RoleType getRoleType() {
+        return roleType;
+    }
+
+    public void setRoleType(RoleType roleType) {
+        this.roleType = roleType;
+    }
 }
