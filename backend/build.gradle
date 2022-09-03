@@ -1,0 +1,58 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id "com.github.node-gradle.node" version "3.1.0"
+	id 'java'
+}
+
+group = 'four_idiots'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation 'org.sprinframework.boot:spring-boot-starter-hateoas'
+//	implementation 'org.sprinframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation'mysql:mysql-connector-java'
+	implementation 'org.projectlombok:lombok'
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+node {
+	version = '16.17.0'
+	npmVersion = '8.15.0'
+	workDir = file("frontend")
+	npmWorkDir = file("frontend")
+	nodeModulesDir = file("frontend")
+}
+
+task setUp(type: NpmTask) {
+	description = "Install Node.js packages"
+	args = ['install']
+	inputs.files file('package.json')
+	outputs.files file('node_modules')
+}
+
+task buildFrontEnd(type: NpmTask, dependsOn: setUp){
+	description = "Build vue.js"
+	args = ['run','build']
+}
+
+processResources.dependsOn 'npmBuild'
