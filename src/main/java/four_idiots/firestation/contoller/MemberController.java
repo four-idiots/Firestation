@@ -8,20 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MemberController {
 
-    @GetMapping({"","/"})
-    public String index(@AuthenticationPrincipal MemberDetail member) {
+//    @GetMapping({"","/"})
+//    public String index(@AuthenticationPrincipal MemberDetail member) {
+//
+//        return "index";
+//    }
 
-        return "index";
-    }
-    @GetMapping("/auth/joinForm")
-    public String joinForm() {
-
-        return "Regist";
-    }
-
-    @GetMapping("/auth/loginForm")
-    public String loginForm() {
-
-        return "login";
+    @GetMapping({"", "/", "/auth"})
+    public String index () {
+        return "index.html";
     }
 }
