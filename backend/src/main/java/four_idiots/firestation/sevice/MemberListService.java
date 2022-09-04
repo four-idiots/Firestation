@@ -21,4 +21,6 @@ public class MemberListService {
         return memberListRepository.findAll().stream().filter(f -> firestationname.equals(f.getMember().getNearestStation()))
                 .findAny().orElse(null);
     }
+
+
 }
