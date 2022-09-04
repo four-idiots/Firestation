@@ -66,6 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //               .loginProcessingUrl("auth/loginProc")
 //               .defaultSuccessUrl("/")
 //               .failureUrl("/auth/loginForm");
+
     }
 
     @Bean
