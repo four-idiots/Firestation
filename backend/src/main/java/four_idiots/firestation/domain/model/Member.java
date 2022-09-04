@@ -31,7 +31,7 @@ public class Member {
     @Column(nullable = false, length = 30)
     private String nearestStation;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
+//    @Enumerated(EnumType.STRING)
+//    private RoleType roleType;
 
 }
