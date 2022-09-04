@@ -12,6 +12,10 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.CorsUtils;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -36,11 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/", "/auth/**", "/static/**", "/css/**", "/js/**" +
-                            "")
-                        .permitAll()
-                        .anyRequest()
-                    .authenticated();
+                    .requestMatchers((CorsUtils::isPreFlightRequest)).permitAll()
+                    .antMatchers("/", "/auth/**", "/static/**", "/css/**", "/js/**")
+                    .permitAll()
+                    .anyRequest()
+                    .authenticated().and()
+                    .cors();
 //                .and()
 //                    .formLogin()
 //                    .loginPage("/auth/loginForm") // 로그인 페이지
@@ -48,5 +53,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .defaultSuccessUrl("/")
 //                    .failureUrl("/auth/loginForm");
 
+    }
+
+
+    //CORS 정책설정
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+
+        configuration.addAllowedOrigin("*");
+        configuration.addAllowedMethod("*");
+        configuration.addAllowedHeader("*");
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

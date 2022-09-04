@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -31,11 +32,6 @@ public class MemberList {
 
     @OneToMany
     @JoinColumn(name="firestationname")
-    private Firestation firestation;
-
-
-
-
-
+    private List<Firestation> firestation;
 
 }
