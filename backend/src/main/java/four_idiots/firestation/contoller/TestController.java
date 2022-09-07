@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class TestController {
 
-<<<<<<< HEAD
     @GetMapping("/example/1")
-=======
-    @GetMapping("/example")
->>>>>>> 60a1e6155dd69a496a40028e0e5c0cb8ff74cabf
     public String SomeAction(@RequestParam("tEst")String test) {
         log.info("test = " + test);
         String res = "";
@@ -30,11 +26,8 @@ public class TestController {
         return res;
     }
 
-<<<<<<< HEAD
+
     @PostMapping("/example/2")
-=======
-    @PostMapping("/example2")
->>>>>>> 60a1e6155dd69a496a40028e0e5c0cb8ff74cabf
     public String PostAction(HttpServletRequest request) {
         String dd = request.getParameter("demo");
         log.info("input =" + dd);
@@ -48,8 +41,5 @@ public class TestController {
         }
         return rs;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 60a1e6155dd69a496a40028e0e5c0cb8ff74cabf
+

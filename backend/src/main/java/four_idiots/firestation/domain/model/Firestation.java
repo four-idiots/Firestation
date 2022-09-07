@@ -4,6 +4,8 @@ package four_idiots.firestation.domain.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,5 +26,8 @@ public class Firestation {
 
     @Enumerated(EnumType.STRING)
     private RoleType roleType;
+
+    @OneToMany(mappedBy = "firestation")
+    private List<Member> members = new ArrayList<>();
 
 }
