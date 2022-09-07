@@ -3,8 +3,10 @@ package four_idiots.firestation.sevice;
 import four_idiots.firestation.config.jwt.JwtTokenProvider;
 import four_idiots.firestation.domain.dto.LoginRequestDto;
 import four_idiots.firestation.domain.model.Firestation;
+import four_idiots.firestation.domain.model.Member;
 import four_idiots.firestation.domain.model.RoleType;
 import four_idiots.firestation.repository.FirestationRepository;
+import four_idiots.firestation.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +19,9 @@ public class FirestationService {
 
     @Autowired
     private FirestationRepository firestationRepository;
+
+    @Autowired
+    private MemberRepository memberRepository;
 
     @Autowired
     private BCryptPasswordEncoder encoder;
@@ -32,6 +37,13 @@ public class FirestationService {
         firestation.setFirestationPw(encPw);
 
         firestationRepository.save(firestation);
+    }
+
+    @Transactional(readOnly = true)
+    public Member userList(String firestationname) {
+
+        return memberRepository.findAll().stream().filter(f -> firestationname.equals(f.getNearestStation()))
+                .findAny().orElse(null);
     }
 
     public String login(LoginRequestDto loginRequestDto) {
