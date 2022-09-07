@@ -1,6 +1,5 @@
 package four_idiots.firestation.domain.model;
 
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,7 +10,6 @@ import javax.persistence.*;
 @Builder
 @Entity
 public class Member {
-
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int id;
@@ -31,7 +29,7 @@ public class Member {
     @Column(nullable = false, length = 30)
     private String nearestStation;
 
-//    @Enumerated(EnumType.STRING)
-//    private RoleType roleType;
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
 
 }

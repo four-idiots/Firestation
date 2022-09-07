@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
-//@RestController
+//@Controller
+@RestController
 public class MemberApiController {
 
     @Autowired
@@ -44,17 +44,17 @@ public class MemberApiController {
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 
-//    @GetMapping("/memberList/{id}")
-//    public String getList(@PathVariable String id, Model model) {
-//        model.addAttribute("memberList", memberListService.userList(id));
-//        return "memberList";
-//    }
-
-    @GetMapping("/auth/memberList")
-    public String getList(Model model, @PageableDefault(size=3, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
-//        Member m1 = new Member(1, "가", "101", "231", "010-2341-2131", "C");
-//        List<Member> memList = new ArrayList<>()
-        model.addAttribute("memberList", memberService.회원목록(pageable));
-        return "List";
+    @GetMapping("/memberList/{id}")
+    public String getList(@PathVariable String id, Model model) {
+        model.addAttribute("memberList", memberListService.userList(id));
+        return "memberList";
     }
+
+//    @GetMapping("/auth/memberList")
+//    public String getList(Model model, @PageableDefault(size=3, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+////        Member m1 = new Member(1, "가", "101", "231", "010-2341-2131", "C");
+////        List<Member> memList = new ArrayList<>()
+//        model.addAttribute("memberList", memberService.회원목록(pageable));
+//        return "List";
+//    }
 }

@@ -22,5 +22,4 @@ public class MemberListService {
                 .findAny().orElse(null);
     }
 
-
 }

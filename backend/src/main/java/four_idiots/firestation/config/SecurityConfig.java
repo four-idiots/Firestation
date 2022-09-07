@@ -48,24 +48,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic().disable()
                 .cors().configurationSource(corsConfigurationSource())
                 .and()
-                    .csrf().disable()
+                .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                    .authorizeRequests()
-                        .antMatchers("/", "/auth/**", "/static/**", "/css/**", "/js/**", "/static/List").permitAll()
-                        .antMatchers(HttpMethod.PUT, "/put/**").hasAnyRole("USER")
-                        .antMatchers(HttpMethod.POST, "/post/**").hasAnyRole("USER")
-                        .antMatchers(HttpMethod.GET, "/get/**").hasAnyRole("USER")
-                        .anyRequest().permitAll()
-//                .authenticated()
+                .authorizeRequests()
+                .antMatchers("/", "/auth/**", "/css/**", "/js/**").permitAll()
+                .antMatchers(HttpMethod.PUT, "/put/**").hasAnyRole("USER")
+                .antMatchers(HttpMethod.POST, "/post/**").hasAnyRole("USER")
+                .antMatchers(HttpMethod.GET, "/get/**").hasAnyRole("USER")
+                .anyRequest()
+                    .authenticated()
                 .and()
-                    .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider),
-                            UsernamePasswordAuthenticationFilter.class);
-//              .formLogin()
-//               .loginPage("/auth/loginForm") // 로그인 페이지
-//               .loginProcessingUrl("auth/loginProc")
-//               .defaultSuccessUrl("/")
-//               .failureUrl("/auth/loginForm");
+                    .formLogin()
+                    .loginPage("/auth/loginForm") // 로그인 페이지
+                    .loginProcessingUrl("/auth/loginProc")
+                    .defaultSuccessUrl("/")
+                    .failureUrl("/auth/loginForm")
+                .and()
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider),
+                        UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean

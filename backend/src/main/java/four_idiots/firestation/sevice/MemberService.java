@@ -18,13 +18,11 @@ public class MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
-
     @Transactional
     public void memberJoin(Member member) {
-//        member.setRoleType(RoleType.USER);
+        member.setRoleType(RoleType.USER);
         memberRepository.save(member);
     }
-
 
     @Transactional(readOnly = true)
     public Page<Member> 회원목록(Pageable pageable) {
