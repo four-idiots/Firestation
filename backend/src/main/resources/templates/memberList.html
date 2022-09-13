@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box-body">
+  <table id="example1" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>apartname</th>
+      <th>building</th>
+      <th>unit</th>
+      <th>phonenumber</th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr th:each="boardVO : ${memberList}">
+      <td th:text="${boardVO.apartname}">apartname</td>
+      <td th:text="${boardVO.building}">building</td>
+      <td th:text="${boardVO.unit}">unit</td>
+      <td th:text="${boardVO.phonenumber}">phonenumber</td>
+    </tr>
+  </tbody>
+    <tfoot>
+    <tr>
+      <th>apartname</th>
+      <th>building</th>
+      <th>unit</th>
+      <th>phonenumber</th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+</body>
+</html>
