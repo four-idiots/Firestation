@@ -10,8 +10,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
 @Data
+@Entity
 public class Firestation {
 
     @Id
@@ -20,8 +20,7 @@ public class Firestation {
 
     @Column(nullable = false, length = 30)
     private String firestationname;
-
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 100)
     private String firestationPw;
 
     @Enumerated(EnumType.STRING)
@@ -31,3 +30,6 @@ public class Firestation {
     private List<Member> members = new ArrayList<>();
 
 }
+
+
+

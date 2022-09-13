@@ -26,13 +26,13 @@ public class Member {
     @Column(nullable = false, length = 15)
     private String phonenumber;
 
-
+    @Column(nullable = false, length = 30)
+    private String nearestStation;
 
     @Enumerated(EnumType.STRING)
     private RoleType roleType;
 
     @ManyToOne
     @JoinColumn(name = "firestationname")
-    private String nearestStation;
-//    private Firestation firestation;
+    private Firestation firestation;
 }

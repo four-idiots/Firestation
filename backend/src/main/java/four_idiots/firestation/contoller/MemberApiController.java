@@ -41,7 +41,7 @@ public class MemberApiController {
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 
-    @GetMapping("/memberList/{id}")
+    @GetMapping("/admin/{id}")
     public String getList(@PathVariable String id, Model model) {
         model.addAttribute("memberList", firestationService.userList(id));
         return "memberList";
