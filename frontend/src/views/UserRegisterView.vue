@@ -2,12 +2,12 @@
     <div>
       <form v-on:submit.prevent="submitForm">
        <div>
+        <h2>유저 등록</h2>
                 <div>
                   <i class="icon-phone"></i>
                   <b>연락처</b><br />
                   <input
                     type="tel"
-                    v-bind:id ="phonenumber"
                     v-model="phonenumber"
                     pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                     placeholder="010-1234-5678"
@@ -20,7 +20,6 @@
 
                   <input
                     type="text"
-
                     v-model="apartname"
                     placeholder=" oo아파트"
                     style="width: 280px"
@@ -30,7 +29,6 @@
                 <div>
                   <i class="icon-home"></i>
                   <b>주소(동/호)</b><br />
-
                   <input
                     type="number"
 
@@ -41,7 +39,6 @@
                   /
                   <input
                     type="number"
-
                     v-model="unit"
                     style="width: 130px"
                     placeholder="(숫자)호"
@@ -50,7 +47,6 @@
 
                 <div id="fires">
                   <i class="icon-handshake-o"></i>
-
                   <b>정보 공유 소방서 등록</b><br />
                   <b id="info"></b>
                   <input
@@ -140,3 +136,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+/* *{
+    background-color: black;
+  } */
+</style>

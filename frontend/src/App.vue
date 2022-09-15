@@ -1,31 +1,45 @@
 <template>
-  <nav>
-    <router-link to="/user/register">User Register</router-link> |
-    <router-link to="/admin/register">Admin Register</router-link> |
-    <router-link to="/admin/login">Admin Login</router-link> |
-  </nav>
-  <router-view/>
+  <div style="height: 100%">
+    <header>화재 감지 서비스</header>
+    <nav>
+      <router-link
+        @click="change()"
+        type="button"
+        to="/user/register"
+        class="menu-bar"
+        id="fire-car"
+        >User Register
+        <div><router-view name="view1"/></div>
+      </router-link>
+      <router-link
+        @click="change()"
+        type="button"
+        to="/admin/register"
+        class="menu-bar"
+        id="fire-fighter"
+        >Admin Register
+        <div><router-view name="view2"/></div>
+        </router-link>
+      <router-link
+        @click="change()"
+        type="button"
+        to="/admin/login"
+        class="menu-bar"
+        id="fire-station"
+        >Admin Login
+        <div><router-view name="view3"/></div>
+        </router-link>
+    </nav>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  method: {
+    change() {
+      const ch = document.getElementsByClassName('menu-bar')
+      console.log(ch)
+    }
+  }
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>

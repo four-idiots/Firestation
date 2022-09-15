@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Serif KR', serif;
+
+}
+body{
+    width: 1920px;
+
+    height: 1080px;
+    margin:auto;
+}
+
+header{
+    background-color:red;
+    color:white;
+    text-align: center;
+    font-size: 50px;
+    font-weight:bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 10%;
+}
+
+nav {
+  height: 90%;
+  display:flex;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: aliceblue;
+}
+article{
+    width:50%;
+}
+
+.menu-bar{
+    padding-top: 10%;
+    border: 1px solid black;
+    flex-grow: 1;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    /* background-size:contain;  */
+    background-size: 45%;
+    background-position:bottom ;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    font-size: 55px;
+}
+#fire-car{
+    background-image: url('../img/fire-car.png');
+}
+#fire-fighter{
+    background-image: url('../img/fire-fighter.png');
+}
+#fire-station{
+    background-image: url('../img/fire-station.png');
+}
+.menu-bar:hover  {
+  background-color: red;
+  color:white;
+  transition-duration : 1s;
+  transform : scale3D(1.03,1.03,1.03);
+}
+/* a.router-link-exact-active */
