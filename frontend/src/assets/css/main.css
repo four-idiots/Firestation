@@ -7,9 +7,11 @@
   font-family: 'Noto Serif KR', serif;
 
 }
+.b{
+    z-index: 1;
+}
 body{
     width: 1920px;
-
     height: 1080px;
     margin:auto;
 }
