@@ -18,8 +18,9 @@ public class Firestation {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 30, unique = true)
     private String firestationname;
+
     @Column(nullable = false, length = 100)
     private String firestationPw;
 

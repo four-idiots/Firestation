@@ -1,13 +1,18 @@
 package four_idiots.firestation.contoller;
 
 import four_idiots.firestation.config.auth.MemberDetail;
+import four_idiots.firestation.sevice.FirestationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
 public class MemberController {
+    @Autowired
+    private FirestationService firestationService;
 
     @GetMapping({"", "/"})
     public String index () {
@@ -28,11 +33,10 @@ public class MemberController {
     public String login() {
         return "loginForm";
     }
+
+    @GetMapping("/admin/memberList")
+    public String getList(Model model) {
+        model.addAttribute("memberList", firestationService.userList());
+        return "memberList";
+    }
 }
-
-
-//    @GetMapping({"","/"})
-//    public String index(@AuthenticationPrincipal MemberDetail member) {
-//
-//        return "index";
-//    }
