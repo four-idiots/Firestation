@@ -41,7 +41,7 @@ export default {
 </script> -->
 
 <template>
-  <div>
+  <div style="position:absolute">
     <v-container>
       <div><h1>아파트 이름: {{ dataSet.apartname }}</h1></div><br>
       <div><h1>{{ dataSet.building }} 동 </h1></div>
@@ -50,6 +50,7 @@ export default {
     </v-container>
   </div>
 </template>
+
 <script>
 
 import axios from 'axios'

@@ -1,36 +1,34 @@
 <template>
-    <div>
-      <form v-on:submit.prevent="submitForm">
-       <div>
+    <div class="i">
+      <form v-on:submit.prevent="submitForm" >
+       <div  >
+        <h1>User Register</h1>
+        <br/>
                 <div>
                   <i class="icon-phone"></i>
-                  <b>연락처</b><br />
+                  <b>Telephone</b><br />
                   <input
                     type="tel"
-                    v-bind:id ="phonenumber"
                     v-model="phonenumber"
                     pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                     placeholder="010-1234-5678"
-                    style="width: 280px"
                   />
                 </div>
+                <br/>
                 <div>
                   <i class="icon-building-filled"></i>
-                  <b>아파트 이름</b><br />
+                  <b>House Name</b><br />
 
                   <input
                     type="text"
-
                     v-model="apartname"
                     placeholder=" oo아파트"
-                    style="width: 280px"
                   />
                 </div>
-
+                <br/>
                 <div>
                   <i class="icon-home"></i>
-                  <b>주소(동/호)</b><br />
-
+                  <b>Address (building / unit)</b><br />
                   <input
                     type="number"
 
@@ -41,32 +39,31 @@
                   /
                   <input
                     type="number"
-
                     v-model="unit"
                     style="width: 130px"
                     placeholder="(숫자)호"
                   />
                 </div>
+                <br/>
 
                 <div id="fires">
                   <i class="icon-handshake-o"></i>
-
-                  <b>정보 공유 소방서 등록</b><br />
+                  <b>  Fire Station</b><br />
                   <b id="info"></b>
                   <input
                     type="text"
-
                     v-model="nearestStation"
                     name="station"
-
                   />
                 </div>
+                <br/>
                 <div>
-                  <input type="submit" @click="post" value="Register" />
+                  <input class="butt" type="submit" @click="post" value="Register" />
                 </div>
 
       </div>
     </form>
+
     </div>
 </template>
 
@@ -140,3 +137,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+/* *{
+    background-color: black;
+  } */
+</style>
