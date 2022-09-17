@@ -5,66 +5,132 @@
   margin: 0;
   padding: 0;
   font-family: 'Noto Serif KR', serif;
+}
 
+body {
+  width: 1920px;
+  height: 1080px;
+  margin: auto;
+}
+
+header {
+  background-color: red;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 108px;
+}
+#title{
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  padding-left: 50px;
+}
+#guide{
+  color: black;
+  font-size: 30px;
+  float:right;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 50px;
+}
+#article {
+  position:absolute;
+  text-align: center;
+  background-color: aliceblue;
+  width: 1920px;
+  display:flex;
+  height: 972px;
 }
 .b{
-    z-index: 1;
-}
-body{
-    width: 1920px;
-    height: 1080px;
-    margin:auto;
+  width:640px;
+  height:1px;
+  background-color:aliceblue;
+  transition-property:height; 
+  transition-timing-function: linear;
+  transition:height 1s;
+  font-size:20px;
+  border: 1px solid black;
 }
 
-header{
-    background-color:red;
-    color:white;
-    text-align: center;
-    font-size: 50px;
-    font-weight:bold;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 10%;
-}
 
 nav {
-  height: 90%;
-  display:flex;
+  position:absolute;
+  height: 972px;
+  width: 1920px;
+  display: flex;
   flex-wrap: wrap;
   text-align: center;
   background-color: aliceblue;
 }
-article{
-    width:50%;
+article {
+  width: 50%;
 }
 
 .menu-bar{
-    padding-top: 10%;
-    border: 1px solid black;
-    flex-grow: 1;
-    background-repeat: no-repeat;
-    /* background-attachment: fixed; */
-    /* background-size:contain;  */
-    background-size: 45%;
-    background-position:bottom ;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-    font-size: 55px;
+  padding-top: 5%;
+  border: 1px solid black;
+  flex-grow: 1;
+  width:640px;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  background-position: bottom;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  font-size: 55px;
 }
-#fire-car{
-    background-image: url('../img/fire-car.png');
+#fire-car {
+  background-image: url('../img/fire-car.png');
 }
-#fire-fighter{
-    background-image: url('../img/fire-fighter.png');
+#fire-fighter {
+  background-image: url('../img/fire-fighter.png');
+  border-left: 0px;
+  border-right: 0px;
 }
-#fire-station{
-    background-image: url('../img/fire-station.png');
+#b2{
+  border-left: 0px;
+  border-right: 0px;
 }
-.menu-bar:hover  {
+#fire-station {
+  background-image: url('../img/fire-station.png');
+}
+.menu-bar:hover {
   background-color: red;
-  color:white;
-  transition-duration : 1s;
-  transform : scale3D(1.03,1.03,1.03);
+  color: white;
+  transition-duration: 1s;
+  /* transform: scale3D(1.03, 1.03, 1.03); */
 }
-/* a.router-link-exact-active */
+
+/* 화면 전환 */
+input{
+  width:280px;
+  height: 30px;
+}
+.butt, #btn-login{
+  background-color: #04aa6d;
+  color: #fff;
+  border:0px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  width:280px;
+  height: 50px;
+  line-height: 1.17;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+}
+.butt:hover, #btn-login:hover{
+  opacity: 0.7;
+}
+.i{
+  background-color: aliceblue;
+  padding: 15% 0;
+  width: 100%;
+  margin:auto;
+  height:1px;
+}
+form{
+  height: 690px;
+}

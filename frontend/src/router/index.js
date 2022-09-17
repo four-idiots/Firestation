@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import User from '../views/UserRegisterView'
 import Admin from '../views/AdminRegisterView.vue'
 import Login from '../views/AdminLoginView.vue'
+import fontello from '@/assets/icon/fontello-2d947b19/css/fontello.css'
 
 const routes = [
   {
