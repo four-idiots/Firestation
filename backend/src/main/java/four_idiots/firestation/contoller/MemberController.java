@@ -21,7 +21,7 @@ public class MemberController {
 
     @GetMapping("/user/register")
     public String userRegister() {
-        return "index.html";
+        return "/static/index.html";
     }
 
     @GetMapping("/admin/register")
