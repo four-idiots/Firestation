@@ -8,10 +8,15 @@ server:
       force: true
 
 spring:
-  mvc:
-    view:
-      prefix:
-      suffix:
+  thymeleaf:
+    prefix: classpath:/templates-2/
+
+#
+#spring:
+#  mvc:
+#    view:
+#      prefix:
+#      suffix:
 #  security:
 #    oauth2:
 #      client:
