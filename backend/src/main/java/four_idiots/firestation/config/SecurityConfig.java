@@ -18,6 +18,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 @RequiredArgsConstructor
 @Configuration
@@ -49,22 +52,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 //                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .authorizeRequests()
-                    .antMatchers("/", "/auth/**", "/css/**", "/js/**").permitAll()
-//                    .antMatchers(HttpMethod.PUT, "/put/**").hasAnyRole("USER")
-//                    .antMatchers(HttpMethod.POST, "/post/**").hasAnyRole("USER")
-//                    .antMatchers(HttpMethod.GET, "/get/**").hasAnyRole("USER")
-                    .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                    .anyRequest()
-                        .authenticated()
-//                .and()
-//                    .formLogin()
-//                    .loginPage("/auth/loginForm") // 로그인 페이지
-//                    .loginProcessingUrl("/auth/loginProc")
-//                    .defaultSuccessUrl("/")
-//                    .failureUrl("/auth/loginForm")
+                .antMatchers("/", "/static/**", "/auth/**", "/css/**", "/js/**", "/fonts/**", "/img/**")
+                .permitAll()
+//                .antMatchers("/firestation/**").hasAnyRole("ADMIN")
+                .anyRequest().authenticated()
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider),
-                        UsernamePasswordAuthenticationFilter.class);
+                    .formLogin()
+//                    .loginPage("/") // 로그인 페이지
+                    .loginProcessingUrl("/auth/loginProc")
+                    .defaultSuccessUrl("/firestation/memberList")
+                    .failureUrl("/login");
+//                .and()
+//                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider),
+//                        UsernamePasswordAuthenticationFilter.class);
 
     }
 
@@ -75,6 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         configuration.addAllowedOriginPattern("*");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
+        configuration.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
