@@ -7,7 +7,6 @@
         <div class="b" id="b2"><router-view name="view2" /></div>
         <div class="b" id="b3"><router-view name="view3" /></div>
       </div>
-
         <nav id="n">
           <router-link
             type="button"

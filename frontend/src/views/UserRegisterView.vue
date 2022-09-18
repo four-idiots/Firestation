@@ -48,8 +48,8 @@
 
                 <div id="fires">
                   <i class="icon-handshake-o"></i>
-                  <b>Fire Station</b><br />
-                  <b id="info"></b><br>
+                  <b> Fire Station</b><br />
+                  <b id="info"></b>
                   <input
                     id="firestation"
                     type="button"

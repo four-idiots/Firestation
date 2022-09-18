@@ -56,12 +56,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/admin/**").hasAnyRole("ADMIN")
                     .anyRequest()
                         .authenticated()
-                .and()
-                    .formLogin()
-                    .loginPage("/auth/loginForm") // 로그인 페이지
-                    .loginProcessingUrl("/auth/loginProc")
-                    .defaultSuccessUrl("/")
-                    .failureUrl("/auth/loginForm")
+//                .and()
+//                    .formLogin()
+//                    .loginPage("/auth/loginForm") // 로그인 페이지
+//                    .loginProcessingUrl("/auth/loginProc")
+//                    .defaultSuccessUrl("/")
+//                    .failureUrl("/auth/loginForm")
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider),
                         UsernamePasswordAuthenticationFilter.class);
