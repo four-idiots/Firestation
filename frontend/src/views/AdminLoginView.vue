@@ -40,15 +40,6 @@ export default {
         firestationPw: this.firestationPw
       }
       axios.post(url, data)
-        .then(function(response) {
-          console.log(response)
-          alert('성공')
-          // window.location.href = 'http://localhost:7777/admin/list'
-        })
-        .catch(function(error) {
-          console.log(error)
-          alert('실패')
-        })
     }
   }
 }
