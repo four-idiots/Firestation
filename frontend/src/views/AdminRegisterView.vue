@@ -16,7 +16,7 @@
       </div>
       <br/>
       <div>
-        <button id="btn-login" type="submit" @click="submitForm2">Login</button>
+        <button id="btn-login" type="submit" @click="submitForm2">Register</button>
       </div>
     </form>
 

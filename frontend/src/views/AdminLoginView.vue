@@ -3,16 +3,17 @@
       <form action="/auth/loginProc" method="post">
         <h1>Admin Login</h1>
         <br/>
-        <i class="icon-user"></i><b>ID</b>
-        <div>
+        <!-- <i class="icon-user"></i><b>ID</b> -->
+        <!-- <div>
           <input type="text" v-model="firestationname" placeholder="아이디" />
         </div>
         <br/>
         <i class="icon-key"></i><b>Password</b>
         <div>
           <input type="password" v-model="firestationpassword" placeholder="비밀번호" />
-        </div>
+        </div> -->
         <br/>
+        <br>
         <div>
           <button id="btn-login" type="submit" @click="submitForm3">Login</button>
         </div>
