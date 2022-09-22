@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script>
+      function login() {
+        alert("로그인 되었습니다.");
+      }
+    </script>
+    <style>
+        html{
+            background-color: aliceblue;
+            text-align: center;
+            margin:auto;
+        } 
+        th, td{
+            border: 1px solid black;
+        } 
+        #example1{
+            border: 1px solid black;
+            margin-left:30px;
+            font-size:30px;
+            width:80%;
+        } 
+        #logout{ 
+          float:right;
+          margin-right:30px;
+        }
+    </style>
+  </head>
+  <body onload="login()">
+    <div>
+      <a id="logout" href="/logout"> <h2>로그아웃</h2></a>
+    </div>
+    <div class="box-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>apartname</th>
+            <th>building</th>
+            <th>unit</th>
+            <th>phonenumber</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="boardVO : ${memberList}">
+            <td th:text="${boardVO.apartname}">apartname</td>
+            <td th:text="${boardVO.building}">building</td>
+            <td th:text="${boardVO.unit}">unit</td>
+            <td th:text="${boardVO.phonenumber}">phonenumber</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
