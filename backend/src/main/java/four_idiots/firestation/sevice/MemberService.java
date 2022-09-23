@@ -24,6 +24,15 @@ public class MemberService {
         memberRepository.save(member);
     }
 
+    @Transactional
+    public Member findMemberByPhoneNum(String phoneNum) {
+        Member member = memberRepository.findByPhonenumber(phoneNum).orElseThrow(()-> {
+            return new IllegalArgumentException("존재하지 않는 회원입니다.");
+        });
+
+        return member;
+    }
+
     @Transactional(readOnly = true)
     public Page<Member> 회원목록(Pageable pageable) {
         return memberRepository.findAll(pageable);
