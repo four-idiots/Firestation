@@ -1,29 +1,109 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>List</title>
-    <style>
-        *{
-            text-align:center;
-        }
-      #f {
-        width: 100%;
-        background-color: red;
+<head>
+  <meta charset="UTF-8" />
+  <title>List</title>
+  <script>
+      // function login() {
+      //   alert("로그인 되었습니다.");
+      // }
+    </script>
+  <style>
+      html {
+        background-color: aliceblue;
+        text-align: center;
+        margin: auto;
       }
-      h1{
-        display: inline;
-        font-size:80px;
+      #example1 {
+        margin:auto;
+        border: 1px solid black;
+        /* margin-left: 30px; */
+        font-size: 30px;
+        width: 80%;
+      }
+      iframe{
+        width: 80%;
+        border:none;
+      }
+      #alert {
+        font-size: 30px;
+        border: 1px solid black;
+        width: 80%;
+        height: 50px;
+        margin-left: 30px;
+        background-color: red;
+        color: white;
       }
     </style>
-  </head>
-  <body>
-    <div id="f" th:each="boardVO : ${memberList}">
-      <h1>
-        <strong th:text="${boardVO.apartname}"></strong>    
-        <strong th:text="${boardVO.building}"></strong>
-        <strong th:text="${boardVO.unit}"></strong>
-      </h1>     
-      <strong style="font-size:30px" th:text="${boardVO.phonenumber}"></strong>
-    </div>
-  </body>
+</head>
+<!--  <body onload="login()">-->
+
+<div align="center">
+  <h1>화재 발생 가구</h1>
+  <table
+          id="example2"
+          class="table table-bordered table-striped"
+          border="1"
+  >
+    <caption>
+      <strong>서비스 등록 세대</strong>
+    </caption>
+    <br /><br />
+
+    <thead>
+    <tr>
+      <th>apartname</th>
+      <th>building</th>
+      <th>unit</th>
+      <th>phonenumber</th>
+      <th>condition</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="member : ${member}">
+      <td th:text="${member.apartname}">apartname</td>
+      <td th:text="${member.building}">building</td>
+      <td th:text="${member.unit}">unit</td>
+      <td th:text="${member.phonenumber}">phonenumber</td>
+      <td style="background-color: rgb(255, 0, 0)">Danger</td>
+    </tr>
+    </tbody>
+  </table>
+  <br/>
+  <hr/>
+</div>
+
+<div class="box-body">
+  <table
+          id="example1"
+          class="table table-bordered table-striped"
+          border="1"
+  >
+    <caption>
+      <strong>서비스 등록 세대</strong>
+    </caption>
+    <br /><br />
+
+    <thead>
+    <tr>
+      <th>apartname</th>
+      <th>building</th>
+      <th>unit</th>
+      <th>phonenumber</th>
+      <th>condition</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="boardVO : ${memberList}">
+      <td th:text="${boardVO.apartname}">apartname</td>
+      <td th:text="${boardVO.building}">building</td>
+      <td th:text="${boardVO.unit}">unit</td>
+      <td th:text="${boardVO.phonenumber}">phonenumber</td>
+      <td style="background-color: rgb(113, 255, 113)">Safety</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<a id="logout" href="/logout"><h2>로그아웃</h2></a>
+</body>
 </html>

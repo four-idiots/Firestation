@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -43,9 +44,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtTokenProvider jwtTokenProvider;
 
+
+
+////    @Override
+//    protected void configure(HttpSecurity http, String phoneNum) throws Exception {
+//        http.headers().frameOptions().disable()
+//                .addHeaderWriter(new StaticHeadersWriter
+//                        ("X-FRAME-OPTIONS", "ALLOW-FROM " + "http://localhost:7777/firestatin/"+phoneNum));
+//    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .headers()
+                    .frameOptions()
+                    .sameOrigin()
+                .and()
                 .httpBasic().disable()
                 .csrf().disable()
                 .cors().configurationSource(corsConfigurationSource())

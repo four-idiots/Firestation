@@ -43,6 +43,7 @@ public class MemberController {
     @GetMapping("/firestation/{phoneNum}")
     public String pushAlram(@PathVariable String phoneNum, Model model) {
 
+        model.addAttribute("memberList", firestationService.userList());
         model.addAttribute("member", memberService.findMemberByPhoneNum(phoneNum));
 
         return "fireAlarm.html";
