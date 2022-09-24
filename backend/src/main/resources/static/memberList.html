@@ -2,45 +2,70 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>Title</title>
+    <title>List</title>
     <script>
-      function login() {
-        alert("로그인 되었습니다.");
-      }
+      // function login() {
+      //   alert("로그인 되었습니다.");
+      // }
     </script>
     <style>
-        html{
-            background-color: aliceblue;
-            text-align: center;
-            margin:auto;
-        } 
-        th, td{
-            border: 1px solid black;
-        } 
-        #example1{
-            border: 1px solid black;
-            margin-left:30px;
-            font-size:30px;
-            width:80%;
-        } 
-        #logout{ 
-          float:right;
-          margin-right:30px;
-        }
+      html {
+        background-color: aliceblue;
+        text-align: center;
+        margin: auto;
+      }
+      #example1 {
+        margin:auto;
+        border: 1px solid black;
+        /* margin-left: 30px; */
+        font-size: 30px;
+        width: 80%;
+      }
+      iframe{
+        width: 80%;
+        border:none;
+      }
+      #alert {
+        font-size: 30px;
+        border: 1px solid black;
+        width: 80%;
+        height: 50px;
+        margin-left: 30px;
+        background-color: red;
+        color: white;
+      }
     </style>
   </head>
   <body onload="login()">
+
     <div>
-      <a id="logout" href="/logout"> <h2>로그아웃</h2></a>
+      <h1>화재 발생 가구</h1>
+      <iframe
+      src="fireAlarm.html"
+      >
+      </iframe>
+      <br/>
+      <hr/>
     </div>
+
     <div class="box-body">
-      <table id="example1" class="table table-bordered table-striped">
+      <table
+        id="example1"
+        class="table table-bordered table-striped"
+        border="1"
+      >
+        <caption>
+          <strong>서비스 등록 세대</strong>
+        </caption>
+        <br /><br />
+
         <thead>
           <tr>
             <th>apartname</th>
             <th>building</th>
             <th>unit</th>
             <th>phonenumber</th>
+            <th>condition</th>
           </tr>
         </thead>
         <tbody>
@@ -49,9 +74,11 @@
             <td th:text="${boardVO.building}">building</td>
             <td th:text="${boardVO.unit}">unit</td>
             <td th:text="${boardVO.phonenumber}">phonenumber</td>
+            <td style="background-color: rgb(113, 255, 113)">Safety</td>
           </tr>
         </tbody>
       </table>
     </div>
+    <a id="logout" href="/logout"><h2>로그아웃</h2></a>
   </body>
 </html>
