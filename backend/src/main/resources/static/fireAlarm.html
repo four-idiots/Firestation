@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>List</title>
+    <style>
+        *{
+            text-align:center;
+        }
+      #f {
+        width: 100%;
+        background-color: red;
+      }
+      h1{
+        display: inline;
+        font-size:80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="f" th:each="boardVO : ${memberList}">
+      <h1>
+        <strong th:text="${boardVO.apartname}"></strong>    
+        <strong th:text="${boardVO.building}"></strong>
+        <strong th:text="${boardVO.unit}"></strong>
+      </h1>     
+      <strong style="font-size:30px" th:text="${boardVO.phonenumber}"></strong>
+    </div>
+  </body>
+</html>
