@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>List</title>
   <script>
-      // function login() {
-      //   alert("로그인 되었습니다.");
-      // }
+      function login() {
+        alert("화재 발생!!!");
+      }
     </script>
   <style>
       html {
@@ -14,7 +14,7 @@
         text-align: center;
         margin: auto;
       }
-      #example1 {
+      #example1,#example2{
         margin:auto;
         border: 1px solid black;
         /* margin-left: 30px; */
@@ -38,16 +38,13 @@
 </head>
 <!--  <body onload="login()">-->
 
-<div align="center">
+<div >
   <h1>화재 발생 가구</h1>
   <table
           id="example2"
           class="table table-bordered table-striped"
           border="1"
   >
-    <caption>
-      <strong>서비스 등록 세대</strong>
-    </caption>
     <br /><br />
 
     <thead>
@@ -70,8 +67,16 @@
     </tbody>
   </table>
   <br/>
+  <br/>
+  <br/>
+  <h2>집 구조도</h2>
+  <div th:each="member : ${member}">
+    <div th:if="${member.phonenumber == '010-1111-2222'}"><img th:src="@{/img/A.png}" style="width:700px; border:1px solid black"></div>
+    <div th:if="${member.phonenumber == '010-1234-5678'}"><img th:src="@{/img/B.png}" style="width:700px; border:1px solid black"></div>
+  </div>
   <hr/>
 </div>
+
 
 <div class="box-body">
   <table
